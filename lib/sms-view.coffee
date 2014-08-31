@@ -4,9 +4,7 @@ module.exports =
 class SmsView extends View
   @content: ->
     @div class: 'sms overlay from-top', =>
-      @label 'Phone Number'
       @subview 'phoneNumber', new EditorView(mini: true), outlet: 'phoneNumber'
-      @label 'Message'
       @subview 'message', new EditorView(mini: true), outlet: 'message'
       @div class: 'text-subtle', '0/160', outlet: 'count'
 
@@ -14,6 +12,8 @@ class SmsView extends View
     @init()
     @on 'sms:send', => @send()
     @on 'sms:cancel', => @cancel()
+    @phoneNumber.setPlaceholderText('Phone Number')
+    @message.setPlaceholderText('Message')
 
   destroy: ->
     @detach()
