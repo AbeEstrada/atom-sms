@@ -1,0 +1,13 @@
+{
+  "name": "sms",
+  "main": "./lib/sms",
+  "version": "0.1.0",
+  "description": "Send SMS messages from Atom",
+  "repository": "https://github.com/AbeEstrada/atom-sms",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+  }
+}

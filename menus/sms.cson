@@ -1,0 +1,9 @@
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'Send SMS',
+      'command': 'sms:open'
+    ]
+  }
+]

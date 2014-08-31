@@ -1,0 +1,3 @@
+'.sms .mini.editor':
+  'enter': 'sms:send'
+  'escape': 'sms:cancel'
