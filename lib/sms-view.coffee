@@ -8,6 +8,7 @@ class SmsView extends View
       @subview 'phoneNumber', new EditorView(mini: true), outlet: 'phoneNumber'
       @label 'Message'
       @subview 'message', new EditorView(mini: true), outlet: 'message'
+      @div class: 'text-subtle', '0/160', outlet: 'count'
 
   initialize: ->
     @attach()
