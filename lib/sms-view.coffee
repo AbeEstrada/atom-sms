@@ -11,14 +11,14 @@ class SmsView extends View
       @div class: 'text-subtle', '0/160', outlet: 'count'
 
   initialize: ->
-    @attach()
+    @init()
     @on 'sms:send', => @send()
     @on 'sms:cancel', => @cancel()
 
   destroy: ->
     @detach()
 
-  attach: ->
+  init: ->
     if @hasParent()
       @detach()
     else
