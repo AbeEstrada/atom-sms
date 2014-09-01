@@ -2,8 +2,11 @@
   {
     'label': 'Packages'
     'submenu': [
-      'label': 'Send SMS',
-      'command': 'sms:open'
+      'label': 'SMS',
+      'submenu': [
+        'label': 'Send',
+        'command': 'sms:open'
+      ]
     ]
   }
 ]
