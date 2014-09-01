@@ -15,6 +15,8 @@ class SmsView extends View
     @phoneNumber.setPlaceholderText "Phone Number"
     @message.setPlaceholderText "Message"
     @subscribe @message.getEditor().getBuffer(), "contents-modified", @updateCharacterCount
+    atom.workspaceView.on 'focusout', '.editor:not(.mini)', => @cancel()
+    atom.workspaceView.on 'pane:before-item-destroyed', => @cancel()
 
   destroy: ->
     @detach()
