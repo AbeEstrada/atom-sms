@@ -14,8 +14,7 @@ class SmsView extends View
     @on "sms:cancel", => @cancel()
     @phoneNumber.setPlaceholderText "Phone Number"
     @message.setPlaceholderText "Message"
-    @message.on "keydown, keyup", =>
-      @count.text "#{@message.getText().length}/160"
+    @subscribe @message.getEditor().getBuffer(), "contents-modified", @updateCharacterCount
 
   destroy: ->
     @detach()
@@ -27,6 +26,9 @@ class SmsView extends View
       atom.workspaceView.append(this)
       @phoneNumber.focus()
       @phoneNumber.scrollToCursorPosition()
+
+  updateCharacterCount: =>
+    @count.text "#{@message.getText().length}/160"
 
   send: ->
     console.log @phoneNumber.getText(), @message.getText()
