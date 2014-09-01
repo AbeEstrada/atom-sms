@@ -1,4 +1,5 @@
-{EditorView, View} = require 'atom'
+{EditorView, View} = require "atom"
+client = require("twilio")(atom.config.get("sms.accountSid"), atom.config.get("sms.authToken"))
 
 module.exports =
 class SmsView extends View
@@ -32,8 +33,17 @@ class SmsView extends View
   updateCharacterCount: =>
     @count.text "#{@message.getText().length}/160"
 
-  send: ->
-    console.log @phoneNumber.getText(), @message.getText()
+  send: =>
+    client.messages.create
+      from: atom.config.get("sms.from")
+      to: @phoneNumber.getText()
+      body: @message.getText()
+    , (err) =>
+      if err
+        console.log err.message
+      else
+        @cancel()
+      return
 
   cancel: ->
     if @hasParent()
