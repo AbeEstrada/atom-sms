@@ -13,6 +13,8 @@ Requires:
 
 Just because we can.
 
+![](https://cloud.githubusercontent.com/assets/7937/4125012/c62e72e8-32dd-11e4-9a88-3a2165a9bf0f.jpg)
+
 ## To Do
   * Disable editor views when user presses `Enter`
   * Add a progress bar when sending message
